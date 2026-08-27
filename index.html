@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hazal ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: white;
+  background: radial-gradient(circle at center, #54265f, #140b20 70%);
+}
+
+.scene {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.small {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: .7;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: clamp(38px, 11vw, 60px);
+  margin: 15px 0;
+}
+
+.sub {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: .85;
+}
+
+button {
+  margin-top: 20px;
+  padding: 16px 28px;
+  border: 0;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: bold;
+  background: #ffd4ed;
+  color: #30152f;
+}
+
+/* PASTA */
+
+.cake-wrap {
+  width: 330px;
+  height: 270px;
+  margin: 15px auto;
+  position: relative;
+}
+
+.plate {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 22px;
+  border-radius: 50%;
+  background: #f5d9e9;
+}
+
+.cake {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 125px;
+  border-radius: 18px;
+  background: linear-gradient(#ff9fbe 25%, #fff0f5 25%);
+  box-shadow: 0 15px 30px rgba(0,0,0,.3);
+}
+
+.cake::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* MUMLAR */
+
+.candles {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 155px;
+  transform: translateX(-50%);
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.candle {
+  width: 11px;
+  height: 60px;
+  border-radius: 5px;
+  background: repeating-linear-gradient(
+    135deg,
+    white 0 7px,
+    #ff75ad 7px 13px
+  );
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  width: 18px;
+  height: 27px;
+  top: -29px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 10%;
+  background: #ffd15c;
+  box-shadow: 0 0 15px #ff9d45;
+  animation: flicker .15s infinite alternate;
+}
+
+@keyframes flicker {
+  to {
+    transform: translateX(-50%) scale(.85) rotate(4deg);
+  }
+}
+
+.candle.out .flame {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* KONFETİ */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 15px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+.message {
+  animation: appear .8s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+  <!-- GİRİŞ -->
+  <div class="card" id="intro">
+
+    <div class="small">
+      küçük bir sürpriz 🎁
+    </div>
+
+    <h1>Hazal ❤️</h1>
+
+    <p class="sub">
+      Senin için küçük bir şey hazırladım.<br>
+      Hazırsan başlayalım...
+    </p>
+
+    <button onclick="startSurprise()">
+      Sürprizi Başlat ✨
+    </button>
+
+  </div>
+
+
+  <!-- PASTA -->
+  <div class="card hidden" id="birthday">
+
+    <div class="small">
+      bir dilek tut ✨
+    </div>
+
+    <h1>Şimdi sıra sende</h1>
+
+    <div class="cake-wrap">
+
+      <div class="candles" id="candles"></div>
+
+      <div class="cake"></div>
+
+      <div class="plate"></div>
+
+    </div>
+
+    <p class="sub">
+      Derin bir nefes al ve mumları üfle 💨
+    </p>
+
+    <p id="status">
+      Mikrofon hazırlanıyor...
+    </p>
+
+  </div>
+
+
+  <!-- SON -->
+  <div class="card hidden message" id="done">
+
+    <div class="small">
+      ✨ dileğin kabul olsun ✨
+    </div>
+
+    <h1>
+      İYİ Kİ DOĞDUN<br>
+      HAZAL ❤️
+    </h1>
+
+    <p class="sub">
+      Nice güzel yaşlara.<br>
+      Hep yüzünün güldüğü çok güzel bir yıl olsun. 🎂
+    </p>
+
+  </div>
+
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+
+<script>
+
+/* Mumları oluştur */
+const candles = document.getElementById("candles");
+
+for (let i = 0; i < 12; i++) {
+
+  const candle = document.createElement("div");
+  candle.className = "candle";
+
+  const flame = document.createElement("div");
+  flame.className = "flame";
+
+  candle.appendChild(flame);
+  candles.appendChild(candle);
+
+}
+
+
+/* Başlat */
+
+let audioContext;
+let analyser;
+let microphone;
+let data;
+let finished = false;
+
+async function startSurprise() {
+
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("birthday").classList.remove("hidden");
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+    audioContext =
+      new (window.AudioContext ||
+      window.webkitAudioContext)();
+
+    microphone =
+      audioContext.createMediaStreamSource(stream);
+
+    analyser =
+      audioContext.createAnalyser();
+
+    analyser.fftSize = 1024;
+
+    microphone.connect(analyser);
+
+    data =
+      new Uint8Array(analyser.fftSize);
+
+    document.getElementById("status").innerText =
+      "Hazır 💨 Şimdi üfle!";
+
+    detectBlow();
+
+  } catch (error) {
+
+    document.getElementById("status").innerText =
+      "Mikrofon izni verilmedi. Ekrana dokunarak devam edebilirsin.";
+
+    document.getElementById("birthday")
+      .addEventListener("click", finish);
+
+  }
+}
+
+
+/* Üfleme algılama */
+
+function detectBlow() {
+
+  if (finished) return;
+
+  analyser.getByteTimeDomainData(data);
+
+  let sum = 0;
+
+  for (let i = 0; i < data.length; i++) {
+
+    const value =
+      (data[i] - 128) / 128;
+
+    sum += value * value;
+
+  }
+
+  const volume =
+    Math.sqrt(sum / data.length);
+
+  if (volume > 0.16) {
+
+    finish();
+
+  }
+
+  requestAnimationFrame(detectBlow);
+
+}
+
+
+/* Mumları söndür */
+
+function finish() {
+
+  if (finished) return;
+
+  finished = true;
+
+  document.querySelectorAll(".candle")
+    .forEach((candle, index) => {
+
+      setTimeout(() => {
+
+        candle.classList.add("out");
+
+      }, index * 80);
+
+    });
+
+
+  setTimeout(() => {
+
+    document.getElementById("birthday")
+      .classList.add("hidden");
+
+    document.getElementById("done")
+      .classList.remove("hidden");
+
+    createConfetti();
+
+  }, 1300);
+
+}
+
+
+/* Konfeti */
+
+function createConfetti() {
+
+  const box =
+    document.getElementById("confetti");
+
+  const colors = [
+    "#ffd166",
+    "#ff7eb6",
+    "#b8f2e6",
+    "#a6c8ff",
+    "#ffffff"
+  ];
+
+  for (let i = 0; i < 120; i++) {
+
+    const piece =
+      document.createElement("span");
+
+    piece.style.left =
+      Math.random() * 100 + "vw";
+
+    piece.style.background =
+      colors[Math.floor(
+        Math.random() * colors.length
+      )];
+
+    piece.style.animationDuration =
+      (2 + Math.random() * 3) + "s";
+
+    piece.style.animationDelay =
+      Math.random() * .5 + "s";
+
+    box.appendChild(piece);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
