@@ -2,198 +2,211 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Hazal ❤️</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: white;
-  background: radial-gradient(circle at center, #54265f, #140b20 70%);
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:white;
+  background:radial-gradient(circle at 50% 25%,#632c70,#21112f 48%,#09050e);
 }
 
-.scene {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.scene{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.card {
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-  z-index: 2;
+.card{
+  width:92%;
+  max-width:520px;
+  position:relative;
+  z-index:2;
 }
 
-.small {
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: .7;
-  font-size: 14px;
+.hidden{display:none!important}
+
+.small{
+  font-size:14px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  opacity:.7;
 }
 
-h1 {
-  font-size: clamp(38px, 11vw, 60px);
-  margin: 15px 0;
+h1{
+  font-size:clamp(38px,11vw,60px);
+  line-height:1.05;
+  margin:15px 0;
 }
 
-.sub {
-  font-size: 18px;
-  line-height: 1.5;
-  opacity: .85;
+.sub{
+  font-size:18px;
+  line-height:1.5;
+  opacity:.85;
 }
 
-button {
-  margin-top: 20px;
-  padding: 16px 28px;
-  border: 0;
-  border-radius: 50px;
-  font-size: 17px;
-  font-weight: bold;
-  background: #ffd4ed;
-  color: #30152f;
+button{
+  border:0;
+  border-radius:50px;
+  padding:16px 25px;
+  margin:8px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.primary{
+  background:#ffd5ed;
+  color:#32152f;
+}
+
+.secondary{
+  background:rgba(255,255,255,.12);
+  color:white;
+  border:1px solid rgba(255,255,255,.25);
 }
 
 /* PASTA */
 
-.cake-wrap {
-  width: 330px;
-  height: 270px;
-  margin: 15px auto;
-  position: relative;
+.cake-wrap{
+  position:relative;
+  width:min(85vw,350px);
+  height:270px;
+  margin:10px auto;
 }
 
-.plate {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  height: 22px;
-  border-radius: 50%;
-  background: #f5d9e9;
+.plate{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:95%;
+  height:22px;
+  border-radius:50%;
+  background:#f5d9e9;
 }
 
-.cake {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75%;
-  height: 125px;
-  border-radius: 18px;
-  background: linear-gradient(#ff9fbe 25%, #fff0f5 25%);
-  box-shadow: 0 15px 30px rgba(0,0,0,.3);
+.cake{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:75%;
+  height:125px;
+  border-radius:18px;
+  background:linear-gradient(#ff9fbe 25%,#fff0f5 25%);
+  box-shadow:0 15px 30px rgba(0,0,0,.3);
 }
 
-.cake::after {
-  content: "";
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
+.cake:after{
+  content:"";
+  position:absolute;
+  top:28px;
+  left:0;
+  width:100%;
+  height:20px;
+  background:white;
+  border-radius:50%;
 }
 
-/* MUMLAR */
-
-.candles {
-  position: absolute;
-  z-index: 5;
-  left: 50%;
-  bottom: 155px;
-  transform: translateX(-50%);
-  width: 75%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+.candles{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  bottom:155px;
+  transform:translateX(-50%);
+  width:75%;
+  display:flex;
+  justify-content:space-around;
 }
 
-.candle {
-  width: 11px;
-  height: 60px;
-  border-radius: 5px;
-  background: repeating-linear-gradient(
+.candle{
+  width:11px;
+  height:60px;
+  border-radius:5px;
+  background:repeating-linear-gradient(
     135deg,
     white 0 7px,
     #ff75ad 7px 13px
   );
-  position: relative;
+  position:relative;
 }
 
-.flame {
-  position: absolute;
-  width: 18px;
-  height: 27px;
-  top: -29px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 50% 10%;
-  background: #ffd15c;
-  box-shadow: 0 0 15px #ff9d45;
-  animation: flicker .15s infinite alternate;
+.flame{
+  position:absolute;
+  width:18px;
+  height:28px;
+  top:-29px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:50% 50% 50% 10%;
+  background:#ffd15c;
+  box-shadow:0 0 15px #ff9d45;
+  animation:flicker .15s infinite alternate;
 }
 
-@keyframes flicker {
-  to {
-    transform: translateX(-50%) scale(.85) rotate(4deg);
+@keyframes flicker{
+  to{
+    transform:translateX(-50%) scale(.85) rotate(4deg);
   }
 }
 
-.candle.out .flame {
-  display: none;
+.candle.out .flame{
+  display:none;
 }
 
-.hidden {
-  display: none;
+#status{
+  min-height:25px;
+  font-size:14px;
+  opacity:.8;
+}
+
+.message{
+  animation:appear .8s ease;
+}
+
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:scale(.6);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
 /* KONFETİ */
 
-.confetti {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
+.confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
 }
 
-.confetti span {
-  position: absolute;
-  top: -20px;
-  width: 8px;
-  height: 15px;
-  animation: fall 3s linear forwards;
+.confetti span{
+  position:absolute;
+  top:-20px;
+  width:8px;
+  height:15px;
+  animation:fall 3s linear forwards;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(720deg);
-  }
-}
-
-.message {
-  animation: appear .8s ease;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: scale(.6);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
   }
 }
 </style>
@@ -203,75 +216,88 @@ button {
 
 <div class="scene">
 
-  <!-- GİRİŞ -->
-  <div class="card" id="intro">
+<!-- GİRİŞ -->
 
-    <div class="small">
-      küçük bir sürpriz 🎁
-    </div>
+<div class="card" id="intro">
 
-    <h1>Hazal ❤️</h1>
+<div class="small">
+küçük bir sürpriz 🎁
+</div>
 
-    <p class="sub">
-      Senin için küçük bir şey hazırladım.<br>
-      Hazırsan başlayalım...
-    </p>
+<h1>Hazal ❤️</h1>
 
-    <button onclick="startSurprise()">
-      Sürprizi Başlat ✨
-    </button>
+<p class="sub">
+Senin için küçük bir şey hazırladım.<br>
+Hazırsan başlayalım...
+</p>
 
-  </div>
+<button class="secondary" onclick="openMusic()">
+🎵 Önce şarkıyı aç
+</button>
 
+<br>
 
-  <!-- PASTA -->
-  <div class="card hidden" id="birthday">
+<button class="primary" onclick="startSurprise()">
+Sürprizi Başlat ✨
+</button>
 
-    <div class="small">
-      bir dilek tut ✨
-    </div>
-
-    <h1>Şimdi sıra sende</h1>
-
-    <div class="cake-wrap">
-
-      <div class="candles" id="candles"></div>
-
-      <div class="cake"></div>
-
-      <div class="plate"></div>
-
-    </div>
-
-    <p class="sub">
-      Derin bir nefes al ve mumları üfle 💨
-    </p>
-
-    <p id="status">
-      Mikrofon hazırlanıyor...
-    </p>
-
-  </div>
+</div>
 
 
-  <!-- SON -->
-  <div class="card hidden message" id="done">
+<!-- DOĞUM GÜNÜ -->
 
-    <div class="small">
-      ✨ dileğin kabul olsun ✨
-    </div>
+<div class="card hidden" id="birthday">
 
-    <h1>
-      İYİ Kİ DOĞDUN<br>
-      HAZAL ❤️
-    </h1>
+<div class="small">
+bir dilek tut ✨
+</div>
 
-    <p class="sub">
-      Nice güzel yaşlara.<br>
-      Hep yüzünün güldüğü çok güzel bir yıl olsun. 🎂
-    </p>
+<h1>Şimdi sıra sende</h1>
 
-  </div>
+<div class="cake-wrap">
+
+<div class="candles" id="candles"></div>
+
+<div class="cake"></div>
+
+<div class="plate"></div>
+
+</div>
+
+<p class="sub">
+Derin bir nefes al ve mumları üfle 💨
+</p>
+
+<p id="status">
+Mikrofon hazırlanıyor...
+</p>
+
+<button class="secondary" onclick="finish()">
+👆 Dokunarak söndür
+</button>
+
+</div>
+
+
+<!-- SON -->
+
+<div class="card hidden message" id="done">
+
+<div class="small">
+✨ dileğin kabul olsun ✨
+</div>
+
+<h1>
+İYİ Kİ DOĞDUN<br>
+HAZAL ❤️
+</h1>
+
+<p class="sub">
+Nice güzel yaşlara.<br>
+Hep yüzünün güldüğü çok güzel bir yıl olsun. 🎂
+</p>
+
+</div>
 
 </div>
 
@@ -280,153 +306,318 @@ button {
 
 <script>
 
-/* Mumları oluştur */
-const candles = document.getElementById("candles");
+/* MUM SAYISI */
 
-for (let i = 0; i < 12; i++) {
+const candlesBox =
+document.getElementById("candles");
 
-  const candle = document.createElement("div");
-  candle.className = "candle";
+for(let i=0;i<12;i++){
 
-  const flame = document.createElement("div");
-  flame.className = "flame";
+  const candle =
+  document.createElement("div");
+
+  candle.className="candle";
+
+  const flame =
+  document.createElement("div");
+
+  flame.className="flame";
 
   candle.appendChild(flame);
-  candles.appendChild(candle);
+
+  candlesBox.appendChild(candle);
+}
+
+
+/* YOUTUBE */
+
+function openMusic(){
+
+  window.open(
+    "https://www.youtube.com/watch?v=7VnrT-ltQYc",
+    "_blank"
+  );
 
 }
 
 
-/* Başlat */
+/* MİKROFON */
 
-let audioContext;
-let analyser;
-let microphone;
-let data;
-let finished = false;
+let stream=null;
+let audioContext=null;
+let analyser=null;
 
-async function startSurprise() {
+let finished=false;
+let calibrationEnd=0;
+let noiseLevel=0;
+let blowStart=0;
 
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("birthday").classList.remove("hidden");
+async function startSurprise(){
 
-  try {
+  document
+  .getElementById("intro")
+  .classList.add("hidden");
 
-    const stream =
-      await navigator.mediaDevices.getUserMedia({
-        audio: true
-      });
+  document
+  .getElementById("birthday")
+  .classList.remove("hidden");
+
+  const status =
+  document.getElementById("status");
+
+
+  if(
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ){
+
+    status.innerText =
+    "Mikrofon kullanılamıyor. Aşağıdaki butona dokunabilirsin.";
+
+    return;
+  }
+
+
+  try{
+
+    stream =
+    await navigator.mediaDevices.getUserMedia({
+      audio:{
+        echoCancellation:true,
+        noiseSuppression:false,
+        autoGainControl:false
+      }
+    });
+
 
     audioContext =
-      new (window.AudioContext ||
-      window.webkitAudioContext)();
+    new (
+      window.AudioContext ||
+      window.webkitAudioContext
+    )();
 
-    microphone =
-      audioContext.createMediaStreamSource(stream);
+
+    if(audioContext.state==="suspended"){
+      await audioContext.resume();
+    }
+
+
+    const source =
+    audioContext.createMediaStreamSource(stream);
+
 
     analyser =
-      audioContext.createAnalyser();
+    audioContext.createAnalyser();
 
-    analyser.fftSize = 1024;
+    analyser.fftSize=2048;
+    analyser.smoothingTimeConstant=.15;
 
-    microphone.connect(analyser);
+    source.connect(analyser);
 
-    data =
-      new Uint8Array(analyser.fftSize);
 
-    document.getElementById("status").innerText =
-      "Hazır 💨 Şimdi üfle!";
+    status.innerText =
+    "🎤 Mikrofon aktif...";
 
-    detectBlow();
 
-  } catch (error) {
+    /*
+    İlk 1.5 saniye ortam sesini ölç.
+    */
 
-    document.getElementById("status").innerText =
-      "Mikrofon izni verilmedi. Ekrana dokunarak devam edebilirsin.";
+    calibrationEnd =
+    performance.now()+1500;
 
-    document.getElementById("birthday")
-      .addEventListener("click", finish);
+    measureNoise();
+
+  }catch(error){
+
+    console.log(error);
+
+    status.innerText =
+    "🎤 Mikrofon izni verilmedi. Aşağıdaki butona dokunabilirsin.";
 
   }
+
 }
 
 
-/* Üfleme algılama */
+/* ORTAM SESİNİ ÖLÇ */
 
-function detectBlow() {
+function measureNoise(){
 
-  if (finished) return;
+  if(finished)return;
+
+  const data =
+  new Uint8Array(analyser.fftSize);
 
   analyser.getByteTimeDomainData(data);
 
-  let sum = 0;
+  let sum=0;
 
-  for (let i = 0; i < data.length; i++) {
+  for(let i=0;i<data.length;i++){
 
-    const value =
-      (data[i] - 128) / 128;
+    const v=(data[i]-128)/128;
 
-    sum += value * value;
+    sum+=v*v;
+
+  }
+
+  const rms=
+  Math.sqrt(sum/data.length);
+
+  noiseLevel =
+  noiseLevel*.9+rms*.1;
+
+
+  if(performance.now()<calibrationEnd){
+
+    document.getElementById("status").innerText =
+    "🎤 Mikrofon hazırlanıyor...";
+
+    requestAnimationFrame(measureNoise);
+
+  }else{
+
+    document.getElementById("status").innerText =
+    "🎤 Hazır! Şimdi üfle! 💨";
+
+    detectBlow();
 
   }
 
-  const volume =
-    Math.sqrt(sum / data.length);
+}
 
-  if (volume > 0.16) {
 
-    finish();
+/* ÜFLEME ALGILA */
+
+function detectBlow(){
+
+  if(finished)return;
+
+  const data =
+  new Uint8Array(analyser.fftSize);
+
+  analyser.getByteTimeDomainData(data);
+
+  let sum=0;
+
+  for(let i=0;i<data.length;i++){
+
+    const v=(data[i]-128)/128;
+
+    sum+=v*v;
 
   }
+
+  const rms=
+  Math.sqrt(sum/data.length);
+
+
+  /*
+  Ortam sesinden belirgin şekilde
+  yüksek ses gelirse üfleme kabul et.
+  */
+
+  const threshold =
+  Math.max(.10,noiseLevel*3.2);
+
+
+  if(rms>threshold){
+
+    if(!blowStart){
+
+      blowStart=
+      performance.now();
+
+    }
+
+
+    /*
+    Yaklaşık 0.2 saniye güçlü ses
+    gelirse mumları söndür.
+    */
+
+    if(
+      performance.now()-blowStart>200
+    ){
+
+      finish();
+
+      return;
+    }
+
+  }else{
+
+    blowStart=0;
+
+  }
+
 
   requestAnimationFrame(detectBlow);
 
 }
 
 
-/* Mumları söndür */
+/* BİTİR */
 
-function finish() {
+function finish(){
 
-  if (finished) return;
+  if(finished)return;
 
-  finished = true;
-
-  document.querySelectorAll(".candle")
-    .forEach((candle, index) => {
-
-      setTimeout(() => {
-
-        candle.classList.add("out");
-
-      }, index * 80);
-
-    });
+  finished=true;
 
 
-  setTimeout(() => {
+  if(stream){
 
-    document.getElementById("birthday")
-      .classList.add("hidden");
+    stream
+    .getTracks()
+    .forEach(track=>track.stop());
 
-    document.getElementById("done")
-      .classList.remove("hidden");
+  }
+
+
+  document
+  .querySelectorAll(".candle")
+  .forEach((candle,index)=>{
+
+    setTimeout(()=>{
+
+      candle.classList.add("out");
+
+    },index*90);
+
+  });
+
+
+  document.getElementById("status")
+  .innerText=
+  "✨ Dileğin kabul olsun...";
+
+
+  setTimeout(()=>{
+
+    document
+    .getElementById("birthday")
+    .classList.add("hidden");
+
+    document
+    .getElementById("done")
+    .classList.remove("hidden");
 
     createConfetti();
 
-  }, 1300);
+  },1400);
 
 }
 
 
-/* Konfeti */
+/* KONFETİ */
 
-function createConfetti() {
+function createConfetti(){
 
   const box =
-    document.getElementById("confetti");
+  document.getElementById("confetti");
 
-  const colors = [
+  const colors=[
     "#ffd166",
     "#ff7eb6",
     "#b8f2e6",
@@ -434,24 +625,27 @@ function createConfetti() {
     "#ffffff"
   ];
 
-  for (let i = 0; i < 120; i++) {
+
+  for(let i=0;i<120;i++){
 
     const piece =
-      document.createElement("span");
+    document.createElement("span");
 
     piece.style.left =
-      Math.random() * 100 + "vw";
+    Math.random()*100+"vw";
 
     piece.style.background =
-      colors[Math.floor(
-        Math.random() * colors.length
-      )];
+    colors[
+      Math.floor(
+        Math.random()*colors.length
+      )
+    ];
 
     piece.style.animationDuration =
-      (2 + Math.random() * 3) + "s";
+    (2+Math.random()*3)+"s";
 
     piece.style.animationDelay =
-      Math.random() * .5 + "s";
+    Math.random()*.5+"s";
 
     box.appendChild(piece);
 
@@ -460,3 +654,6 @@ function createConfetti() {
 }
 
 </script>
+
+</body>
+</html>
